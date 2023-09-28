@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class HomeWork3 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         WebDriver driver= new ChromeDriver();
         driver.get("https://demoqa.com/text-box");
@@ -14,11 +14,11 @@ public class HomeWork3 {
 
         //fill in the Full Name Textbox
         WebElement fillInFullName=driver.findElement(By.xpath("//input[@placeholder='Full Name']"));
-        fillInFullName.sendKeys("Ayesha Saif");
+        fillInFullName.sendKeys("James Bond");
 
         //fill the email
         WebElement Email=driver.findElement(By.xpath("//input[@type='email']"));
-        Email.sendKeys("ayeshasaif97@hotmail.com");
+        Email.sendKeys("apples123@hotmail.com");
 
         //fill in the current address
         WebElement currentAddress= driver.findElement(By.xpath("//textarea[starts-with(@id,'currentAddress')]"));
@@ -27,6 +27,7 @@ public class HomeWork3 {
         WebElement permanentAddress= driver.findElement(By.xpath("//textarea[starts-with(@id,'permanentAddress')]"));
         permanentAddress.sendKeys("Toronto,Ontario,Canada");
 
+        Thread.sleep(3000);
         //Find Submit WebElement and Click on it
         WebElement submit=driver.findElement(By.xpath("//button[text()='Submit']"));
         submit.click();
