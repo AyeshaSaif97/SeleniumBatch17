@@ -6,7 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class HomeWork5 {
-    /*
+    public static void main(String[] args) throws InterruptedException {
+          /*
     HW2:
 Navigate to http://35.175.58.98/basic-radiobutton-demo.php.
 Check if the "Female" radio button is displayed.
@@ -14,55 +15,37 @@ Click on the "Show Button".
 Check again if the "Female" radio button is displayed or not.
 Print the results of the checks to the console.
      */
-    public static void main(String[] args) throws InterruptedException {
 
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        WebDriver driver=new ChromeDriver();
         driver.get("http://35.175.58.98/basic-radiobutton-demo.php");
+        driver.manage().window().maximize();
 
-        //locate the female Radio btn
-        WebElement femaleRadiobtn= driver.findElement(By.xpath("//input[@value='gender-female' and @name='gender-identity']"));
-        boolean femaleStatus = femaleRadiobtn.isDisplayed();
-        System.out.println("Display Status :"+femaleStatus);
+        WebElement FemaleRadioButton= driver.findElement(By.xpath("//input[@value='gender-female']"));
+        boolean StatusOfFemaleBtn= FemaleRadioButton.isDisplayed();
+        System.out.println("Status of Female Radio Button: "+StatusOfFemaleBtn);
 
-        //if its displayed then click on show button
-        WebElement btnShow=driver.findElement(By.xpath("//button[@id='toggleRadioButtons']"));
-        if(femaleStatus){
-            btnShow.click();
+        WebElement ShowButtons=driver.findElement(By.xpath("//button[text()='Show Buttons']"));
+        ShowButtons.click();
+
+
+
+        Thread.sleep(3000);
+
+        boolean statusOfDisplayButton= FemaleRadioButton.isDisplayed();
+
+        if(statusOfDisplayButton){
+            System.out.println("It is displayed "+statusOfDisplayButton);
+        }else{
+            System.out.println("It is not displayed ");
         }
-        Thread.sleep(2000);
-        //check again female radio btn is displayed or not
-        boolean checkAgain=femaleRadiobtn.isDisplayed();
-        System.out.println("CHeck the status again :"+ checkAgain);
 
-        Thread.sleep(2000);
-        driver.quit();
+
+
+
+
+
+
+
 
     }
-
-
-
-
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
